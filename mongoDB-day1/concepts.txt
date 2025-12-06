@@ -1,0 +1,63 @@
+Mongo DB CRUD Operation -
+
+Insert One
+db.students.insertOne({name:"ankit","age":23})
+
+Inset Many 
+db.students.insertMany([{name:"ankit","age":23},{name:"ankit","age":23}])
+
+Find or Read -> find all the data
+db.students.find()
+
+Find with condition
+db.students.find({age:23})
+
+Find One
+db.students.findOne({name:"Ankit"})
+
+Projections (only display selected fields)
+db.students.find({},{name:1,age:1})
+
+Update - Single Data
+db.students.updateOne(
+{name:"ankit"}, {$set:{age:25}}
+)
+
+Update - Multiple Data
+db.students.updateMany(
+{age:{$lt:22}},{$set:{course:"backend"}}
+)
+
+Delete - Single Data
+db.students.deleteOne({name:"Ravi"})
+
+Delete - Multiple Data
+db.students.deleteMany({age:{$gt:30}})
+
+
+MongoDB Operators -
+
+1. $gt - greater than
+2. $lt - less than 
+3. $eq - equal
+4. $ne - not equal
+5. $or - or 
+6. $and - and
+
+Example - 
+db.students.find({age:{$gt:20,$lt:25}})
+
+Mongoose CRUD Operation -
+
+create
+Student.create({name:"Ankit",age:23})
+
+Read 
+Student.find()
+Student.findById(id)
+
+Update 
+Student.findByIdAndUpdate(id,{age:25})
+
+Delete
+Student.findbyIdAndDelete(id)
